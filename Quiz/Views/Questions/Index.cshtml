@@ -1,0 +1,54 @@
+﻿
+@using Quiz.Models
+@model Quiz
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Quiz";
+    int answer = 0;
+    int count = Model.Questions.Count;
+}
+
+<div class="container-fluid p-3 my-3 border">
+    <h1 class="display-3 text-center pb-2">@Model.Title</h1>
+    <form asp-controller="Results" asp-action="Index" method="post">
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-sm py-3 text-center" style="background-color:lavender;">
+                    <p> @Html.DisplayFor(modelItem => item.Text)</p> 
+                    <div  class="text-center" style="background-color:lavenderblush;">
+                        <fieldset id="@item.Text">
+                            @foreach (var option in item.AnswerOptions)
+                            {
+                                <div class="form-check-inline">
+                                    <input class="form-check-input" type="radio" asp-for="@item" name="@item.Text" value="@option.IsCorrect">
+                                    <label class="form-check-label" asp-for="@item">@Html.DisplayFor(o => option.Text)</label>
+                                </div>
+                            }
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        }
+        <input type="hidden" asp-for="@answer" id="answer"/>
+        <input type="hidden" asp-for="@count"/>
+        <input type="submit" value="Submit" class="btn btn-primary my-2" onclick="getRightAnswersCount()"/>
+    </form>
+</div>
+<script>
+    function getRightAnswersCount() {
+        let rightAnswersCount = 0;
+        let answers = document.getElementsByClassName("form-check-input");
+        for (let i = 0; i < answers.length; i++) {
+            if (answers[i].checked)
+            if (answers[i].getAttribute("value").toLowerCase() === "true") {
+                rightAnswersCount++;
+            }
+        }
+       document.getElementById("answer").setAttribute("value", rightAnswersCount.toString())
+    }
+</script>
+
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

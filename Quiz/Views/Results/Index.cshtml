@@ -1,0 +1,17 @@
+﻿
+@using Quiz.Models
+@model Result
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Result";
+}
+
+
+<div class="container-fluid text-center">
+    <h1 class="display-1">@Model.Text</h1>
+    <img class="mx-auto" src="@Model.Image" alt="This is your result picture" runat = "server"/>
+</div>
+
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

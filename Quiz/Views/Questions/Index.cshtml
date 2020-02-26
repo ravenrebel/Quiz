@@ -22,9 +22,9 @@
                         <fieldset id="@item.Text">
                             @foreach (var option in item.AnswerOptions)
                             {
-                                <div class="form-check-inline">
-                                    <input class="form-check-input" type="radio" asp-for="@item" name="@item.Text" value="@option.IsCorrect">
-                                    <label class="form-check-label" asp-for="@item">@Html.DisplayFor(o => option.Text)</label>
+                                <div class="custom-control custom-radio custom-control-inline pl-4 pb-2">
+                                    <input type="radio" id="@option.Text" class="custom-control-input" name="@item.Text" value="@option.IsCorrect" style="background: aquamarine">
+                                    <label for="@option.Text" class="custom-control-label" >@Html.DisplayFor(o => option.Text)</label>
                                 </div>
                             }
                         </fieldset>

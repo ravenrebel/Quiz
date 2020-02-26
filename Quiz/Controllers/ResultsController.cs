@@ -16,21 +16,16 @@ namespace Quiz.Controllers
             Result result = new Result();
             if (answer / (double) count > 0.5)
             {
-                result.Image = "~/Images/tenor.gif";
+                result.Image = "/Images/09a8def73311d379154b9bf6aaa5f6d8.jpg";
                 result.Text = "You are a cat!";
             }
             else
             {
-                result.Image = "~/Images/535-1000x830.jpg";
+                result.Image = "/Images/535-1000x830.jpg";
                 result.Text = "Sorry, but you are not a cat!";
             }
             return View(result);
         }
         
-        public FileResult GetImage()
-        {
-            var bytes = System.IO.File.ReadAllBytes("~/Images/535-1000x830.jpg");
-            return File(bytes, "image/jpg");
-        }
     }
 }

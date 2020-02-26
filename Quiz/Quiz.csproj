@@ -8,4 +8,10 @@
       <Folder Include="wwwroot" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="wwwroot\Images\funny-cat.jpeg">
+        <DependentUpon>926cd75ba73558929e97400fd6c0c223.png</DependentUpon>
+      </None>
+    </ItemGroup>
+
 </Project>

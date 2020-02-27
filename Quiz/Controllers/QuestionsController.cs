@@ -19,7 +19,7 @@ namespace Quiz.Controllers
             {
                 new AnswerOption("I like it", true), new AnswerOption("Nope", false)
             }),
-            new Question("Are you dog person or cat person?", new List<AnswerOption>
+            new Question("Are you a dog person or a cat person?", new List<AnswerOption>
             {
                 new AnswerOption("Dogs forever!", false), new AnswerOption("Cats one love", true)
             }),

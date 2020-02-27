@@ -23,8 +23,8 @@
                             @foreach (var option in item.AnswerOptions)
                             {
                                 <div class="custom-control custom-radio custom-control-inline pl-4 pb-2">
-                                    <input type="radio" id="@option.Text" class="custom-control-input" name="@item.Text" value="@option.IsCorrect" style="background: aquamarine">
-                                    <label for="@option.Text" class="custom-control-label" >@Html.DisplayFor(o => option.Text)</label>
+                                    <input type="radio" id="@option.Text" class="custom-control-input" name="@item.Text" asp-for="@option" value="@option.IsCorrect">
+                                    <label for="@option.Text" class="custom-control-label">@Html.DisplayFor(o => option.Text)</label>
                                 </div>
                             }
                         </fieldset>
@@ -40,10 +40,10 @@
 <script>
     function getRightAnswersCount() {
         let rightAnswersCount = 0;
-        let answers = document.getElementsByClassName("form-check-input");
+        let answers = document.getElementsByClassName("custom-control-input");
         for (let i = 0; i < answers.length; i++) {
             if (answers[i].checked)
-            if (answers[i].getAttribute("value").toLowerCase() === "true") {
+            if (answers[i].value.toLowerCase() === "true") {
                 rightAnswersCount++;
             }
         }

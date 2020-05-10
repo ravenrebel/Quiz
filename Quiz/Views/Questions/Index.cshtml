@@ -22,8 +22,8 @@
                             @foreach (var option in item.AnswerOptions)
                             {
                                 <div class="custom-control custom-radio custom-control-inline pl-4 pb-2">
-                                    <input type="radio" id="@option.Text" class="custom-control-input" name="@item.Text" asp-for="@option" value="@option.IsCorrect">
-                                    <label for="@option.Text" class="custom-control-label">@Html.DisplayFor(o => option.Text)</label>
+                                    <input type="radio" id="@option.GetHashCode()" class="custom-control-input" name="@item.Text" asp-for="@option" value="@option.IsCorrect">
+                                    <label for="@option.GetHashCode()" class="custom-control-label">@Html.DisplayFor(o => option.Text)</label>
                                 </div>
                             }
                         </fieldset>

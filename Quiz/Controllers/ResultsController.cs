@@ -29,6 +29,7 @@ namespace Quiz.Controllers
             CultureInfo.CurrentUICulture = new CultureInfo(lang);
 
             Result result = new Result();
+            ViewData["Title"] = _localizer["Title"];
             if (answer / (double) count > 0.5)
             {
                 result.Image = "/Images/09a8def73311d379154b9bf6aaa5f6d8.jpg";

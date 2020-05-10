@@ -11,6 +11,15 @@
     <title>@ViewData["Title"]</title>
 </head>
 <body>
+<div class="dropdown">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+        @ViewData["Lang"]
+    </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item"  asp-controller="Questions" asp-action="Index" asp-route-lang="en-US">English</a>
+    <a class="dropdown-item"  asp-controller="Questions" asp-action="Index" asp-route-lang="uk">Українська</a>
+  </div>
+</div>
 @RenderBody()
 </body>
 </html>
